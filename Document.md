@@ -1,4 +1,0 @@
-# Report
-## Server
-
-## Embedded Side
