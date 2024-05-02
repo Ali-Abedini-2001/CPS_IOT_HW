@@ -17,8 +17,8 @@ static byte mask[] = { 255, 255, 255, 0 };
 static byte gwip[] = { 192,168,2,1 };
 static byte hisip[] = { 192,168,2,1 };
 const unsigned int websiteport = 80;
-const char website[] PROGMEM = "localhost:4321";
-byte Ethernet::buffer[700];
+const char website[] PROGMEM = "localhost:80";
+byte Ethernet::buffer[900];
 
 static long timer;
 Stash stash;
@@ -51,12 +51,17 @@ void website_callback (byte status, word off, word len) {
     Serial.println((const char*) Ethernet::buffer + off);
     Serial.println(F("Received response from server:"));
     for (int i = off; i < off+len; i++) Serial.print((char)Ethernet::buffer[i]);
-    Serial.println();
-    StaticJsonDocument<200> doc;
-    DeserializationError error = deserializeJson(doc, &Ethernet::buffer[off]);
-    if (!error) {
-        const char* message = doc["message"];
-        if (strcmp(message, "RFID accepted") == 0) {
+    char k = (char)Ethernet::buffer[off + 9];
+    //for (int i = off; i < off+len; i++) (i == 10) ? k = (char)Ethernet::buffer[i] : ;
+
+    //StaticJsonDocument<200> doc;
+    //DeserializationError error = deserializeJson(doc, &Ethernet::buffer[off]);
+    if (1) {
+        //const char* message = doc["message"];
+        const char* message = &Ethernet::buffer[off]; 
+        //Serial.println(message);
+        char a = '2';
+        if (k == a) {
             Serial.println("Valid Card");
             digitalWrite(GreenlED, HIGH);
             digitalWrite(RedlED, LOW); 
@@ -101,23 +106,16 @@ void loop() {
         id += c;
         if (count == 10){
             Serial.print(id);
-           
-
-            StaticJsonDocument<200> jsonDocument;
-            jsonDocument["type"] = "RFID";
-            jsonDocument["data"]["rfid"] = id;
-            serializeJson(jsonDocument, jsonBuffer);
-            }
+              ether.httpPost(PSTR("/rfid"), website, PSTR("Content-Type: application/json"), id.c_str(), website_callback);           
             break;
+        }
       }
-        ether.httpPost(PSTR("/rfidcheck"), website, PSTR("Content-Type: application/json"), jsonBuffer, website_callback);
       }
-
-     
     }
   }
     
     count = 0;
     id = "";
 }
-//sadadadsfsf
+//1111111111
+//1111111110
