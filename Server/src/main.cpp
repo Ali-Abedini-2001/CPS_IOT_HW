@@ -8,14 +8,14 @@ int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
     Interface *myDefines = new Defines;
     HttpServer myHttpServer = HttpServer(myDefines->getHttpServerPort(), myDefines->getUsersFilePath());
-    qDebug() << "HTTP Server running on port " << myDefines->getHttpServerPort();
+    qDebug() << "HTTP Server running, port: " << myDefines->getHttpServerPort();
 
     WebSocketServer myServer;
     if (!myServer.listen(QHostAddress::LocalHost, myDefines->getWebSocketPort())) {
         qDebug() << "WebSocket Server could not start!";
         return 1;
     }
-    qDebug() << "WebSocket Server started on port" << myServer.serverPort();
+    qDebug() << "WebSocket Server running, port: " << myServer.serverPort();
 
     Logger logger(myDefines->getLoggerFilePath());
 

@@ -1,37 +1,3 @@
-# CPS_IOT_HW
-RFID door lock controlling Using ENC28J60 module 
-
-## Report
-**اعضای گروه:**
-- <p  style="text-align:right;">حامد میر امیرخانی 810199</P>
-  
-- <p style="text-align:right;">محمد امین پورزارع 810199</p>
-- <p style="text-align:right;">پارسا ناصری 810199</p>
-- <p style="text-align:right;">علی عابدینی 810199555</p> 
-## Server Side
-
-## Embedded Side
-ابتدا با فرض ماژول های wifi و یا ethernet شروع به ساخت مدار کردیم. نتایج در زیر قابل مشاهده است:
-- <p style="text-align:right;">در صورتی که rfid معتبر باشد:</p>
-![alt text](image/rfid_valid.png)
-- <p style="text-align:right;">در صورتی که rfid معتبر <b>نباشد</b>:</p>
-![alt text](image/rfid_denied.png)
-
----
-
-سپس با پیروی از مراحل setup کردن ماژول اترنت (enc28j60)، توانستیم یک لوپ بک روی اترنت مجازی بر روی سیستم، پیاده سازی کنیم:
-
-![alt text](image/loopBack.png)
-
----
-
-در نهایت با Reprogram کردن برد Arduino و اتصال ماژول اترنت، مدار نهایی به صورت زیر میباشد:
-
-![alt text](image/proteus.png)
-
-در ادامه مراحل program کردن برد Arduino آمده است:
-
-
 ## پاسخ سوالات
 
 **_سوال 1_**
