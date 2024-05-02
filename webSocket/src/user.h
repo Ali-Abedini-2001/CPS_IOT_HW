@@ -1,18 +1,17 @@
-#ifndef EMPLOYEE_H
-#define EMPLOYEE_H
+#ifndef USER_H
+#define USER_H
 
 #include <QJsonObject>
 #include <QJsonDocument>
 
-class Employee
+class User
 {
 public:
-    Employee();
-    Employee(const QString &rfidTag);
+    User();
+    User(const QString &rfidTag);
     bool checkRFIDTagMatched(const QString &rfidTag) const;
-
 private:
     QString rfidTag_;
 };
 
-#endif // EMPLOYEE_H
+#endif // USER_H
