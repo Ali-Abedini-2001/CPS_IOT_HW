@@ -225,7 +225,7 @@ bool User::checkRFIDTagMatched(const QString &rfidTag) const{
 این فایل‌ها شامل کلاس `UserManager` هستند. کلاس `UserManager` مدیریت مجموعه‌ای از کاربران را بر عهده دارد، به خصوص لیبل های RFID آن‌ها را برای تسهیل کنترل دسترسی در سیستم فراهم می‌کند. این کلاس فایل JSON در زمان شروع بارگذاری می‌کند و متد‌هایی برای تأیید برچسب‌های RFID در مقابل این داده فراهم می‌کند.
 
 **فایل `.h`:**  
-```
+```cpp
 #ifndef USERSMANAGER_H
 #define USERSMANAGER_H
 
@@ -333,7 +333,7 @@ bool UsersManager::handleRfidReceived(const QString &rfid) {
 در فایل .h، کلاس Logger تعریف شده است که مسئول ثبت و نگهداری تاریخچه ورود کاربران به سیستم است. این کلاس شامل ساختار داده LoggedInUserHistory و متدهای getLoginHistories، handleRequestLoginHistory و addLoginHistory است.
 
 **فایل `.h`:**  
-```
+```cpp
 #ifndef LOGGER_H
 #define LOGGER_H
 
@@ -375,7 +375,7 @@ private:
 
 ```
 **فایل `.c`:**  
-```
+```cpp
 #include "logger.h"
 
 #include <QFile>
@@ -469,7 +469,7 @@ void Logger::addLoginHistory(bool isMatch, const QString& date, const QString& c
 فایل های `webSocketServer.cpp` و `webSocketServer.h` کلاس `WebSocketServer` را تعریف و پیاده‌سازی می‌کنند که یک سرور WebSocket برای برقراری ارتباط با کلاینت‌ها است. این کلاس شامل متدهای مختلفی برای پردازش درخواست‌ها و ارسال پاسخ‌ها به کلاینت‌ها است.
 
 **فایل `.h`:**  
-```
+```cpp
 #ifndef WEBSOCKETSERVER_H
 #define WEBSOCKETSERVER_H
 
@@ -521,7 +521,7 @@ private:
 
 
 **فایل `.c`:**  
-```
+```cpp
 #include "webSocketServer.h"
 
 WebSocketServer::WebSocketServer(QObject *parent) : QTcpServer(parent) {
