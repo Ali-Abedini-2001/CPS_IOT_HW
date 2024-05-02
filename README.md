@@ -711,6 +711,12 @@ void WebSocketServer::sendJsonData(const QByteArray &jsonData) {
 در اینجا، سرور با موفقیت یک تگ RFID مجاز را تشخیص می‌دهد و یک وضعیت `200 OK`  را برمی‌گرداند که نشان می‌دهد درخواست مجاز است. عدد ۱ نشان دهند موفقیت آمیز بودن آن و ۰ نشان دهنده دسترسی غیر مجاز است.
 
 
-![Authorized Access](image\web_server_test_with_postman.png)
+![Authorized Access](CPS_IOT_HW\image\web_server_test_with_postman.png)
 که اگر به فایل users.json توجه کنید متوجه مچ شدن آن با rfid نفر اول میشوید:
-![Unauthorized Access](image\rfid_json.png)
+![Unauthorized Access](CPS_IOT_HW\image\rfid_json.png)
+
+---
+
+#### Test result
+![Authorized Access](CPS_IOT_HW\image\result.png)
+![Authorized Access](CPS_IOT_HW\image\result2.png)
