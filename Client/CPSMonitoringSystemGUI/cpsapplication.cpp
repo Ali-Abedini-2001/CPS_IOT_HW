@@ -12,11 +12,11 @@ Application::Application(QObject *parent)
 {
     setWindowsThemeToDark<MainWindow>(*_window);
 
-    QObject::connect(_window, &MainWindow::historyuBtnClicked, this, &Application::sendHistoryRequest);
-    QObject::connect(_window, &MainWindow::connectBtnClicked, this, &Application::connectToServer);
     QObject::connect(_socket, &CPSSocket::newUser, _window, &MainWindow::showUserDetails);
     QObject::connect(_socket, &CPSSocket::newHistory, this, &Application::showHistoryWindow);
     QObject::connect(_socket, &CPSSocket::connectionChanged, _window, &MainWindow::changeRightPanelEnabled);
+    QObject::connect(_window, &MainWindow::historyuBtnClicked, this, &Application::sendHistoryRequest);
+    QObject::connect(_window, &MainWindow::connectBtnClicked, this, &Application::connectToServer);
 }
 
 Application::~Application()
